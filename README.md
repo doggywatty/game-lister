@@ -1,6 +1,6 @@
 # GameLister
-My first homebrew app!
-Lists all installed games and shows the size and total.
+My first homebrew app! Suggested by my dad</br>
+Lists all installed games and shows the size and total.</br>
 Don't know what else to say.
 # Inspiration
 - [devkitPro](https://devkitpro.org/)
