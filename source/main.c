@@ -159,9 +159,8 @@ int main(int argc, char* argv[])
 	PadState pad;
 	padInitializeDefault(&pad);
 
-	// Other initialization goes here. As a demonstration, we print hello world.
 	printf("GameLister\n");
-	printf("Press A to list games.\nPress Plus to exit.\n");
+	printf("Press A to list games.\nPress B to refresh.\nPress Plus to exit.\n\n");
 
 	// Main loop
 	while (appletMainLoop())
@@ -176,8 +175,19 @@ int main(int argc, char* argv[])
 			break; // break in order to return to hbmenu
 		if (kDown & HidNpadButton_A)
 		{
-			printf("\n");
+			consoleClear();
 			listInstalledGames();
+		}
+
+		// Clear the screen but restore the header
+		if (kDown & HidNpadButton_B)
+		{
+			// This clears the console buffer
+			printf("\x1b[2J\x1b[H");
+			
+			// Reprint
+			printf("GameLister\n");
+			printf("Press A to list games.\nPress B to refresh.\nPress Plus to exit.\n\n");
 		}
 
 		// Update the console, sending a new frame to the display
